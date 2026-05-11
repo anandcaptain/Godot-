@@ -20,3 +20,22 @@ Thumbs.db
 # User files
 user://
 *.cfg
+
+# Mobile builds
+android/
+ios/
+build/
+dist/
+
+# Exported files
+*.apk
+*.aab
+*.ipa
+*.dmg
+*.exe
+
+# Web export
+html5/
+*.wasm
+*.html
+*.js

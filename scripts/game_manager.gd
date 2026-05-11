@@ -6,17 +6,24 @@ var game_running = false
 var player_ref = null
 var camera_ref = null
 var ui_ref = null
+var subway_ref = null
 
 func _ready():
 	load_high_score()
+	get_viewport().connect("size_changed", Callable(self, "_on_viewport_resized"))
 	start_game()
+
+func _on_viewport_resized():
+	# Notify player of viewport changes for mobile orientation
+	if is_instance_valid(player_ref):
+		player_ref._on_viewport_size_changed()
 
 func _physics_process(delta):
 	if game_running and is_instance_valid(player_ref):
-		# Update camera to follow player
+		# Update camera to follow player with smooth interpolation
 		if is_instance_valid(camera_ref):
-			var target_pos = player_ref.position + Vector3(0, 4, 8)
-			camera_ref.global_position = camera_ref.global_position.lerp(target_pos, 0.1)
+			var target_pos = player_ref.position + Vector3(0, 5, 8)
+			camera_ref.global_position = camera_ref.global_position.lerp(target_pos, 0.08)
 			camera_ref.look_at(player_ref.position + Vector3(0, 1, 0), Vector3.UP)
 		
 		# Update score based on distance
@@ -30,12 +37,16 @@ func start_game():
 	
 	# Create main game scene
 	var subway_scene = preload("res://scenes/subway.tscn")
-	var subway = subway_scene.instantiate()
-	add_child(subway)
+	subway_ref = subway_scene.instantiate()
+	add_child(subway_ref)
 	
-	player_ref = subway.get_node("Player")
-	camera_ref = player_ref.get_node("Camera")
+	player_ref = subway_ref.get_node("Player")
+	camera_ref = player_ref.get_node("Camera3D")
 	ui_ref = get_node("../UI")
+	
+	# Notify player of initial viewport
+	if is_instance_valid(player_ref):
+		player_ref._on_viewport_size_changed()
 
 func add_score(points):
 	if game_running:
