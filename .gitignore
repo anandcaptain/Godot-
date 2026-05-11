@@ -1,0 +1,22 @@
+# Godot-specific ignores
+.godot/
+*.ods
+*.xcf
+*.import/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# User files
+user://
+*.cfg

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1d2e3f4g5h6i7j8"]
+
+[ext_resource type="Script" path="res://scripts/obstacle.gd" id="1_mno345"]
+
+[node name="Obstacle" type="Area3D"]
+script = ExtResource("1_mno345")
+
+[node name="ObstacleMesh" type="CSGBox3D" parent="."]
+size = Vector3(3, 2, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = BoxShape3D
+size = Vector3(3, 2, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

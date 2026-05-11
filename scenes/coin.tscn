@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://e5f6g7h8i9j0k1l2"]
+
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_pqr678"]
+
+[node name="Coin" type="Area3D"]
+script = ExtResource("1_pqr678")
+
+[node name="CoinMesh" type="CSGCylinder3D" parent="."]
+radius = 0.5
+height = 0.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = CylinderShape3D
+radius = 0.5
+height = 0.2
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
