@@ -22,13 +22,6 @@ window/stretch/aspect="ignore"
 gdscript/warnings/unused_variable=1
 gdscript/warnings/unused_argument=1
 
-[input]
-
-ui_left={"deadzone": 0.5, "events": [Object(InputEventKey,{"scancode": 4194319}), Object(InputEventJoypadButton,{"button_index": 13})]}
-ui_right={"deadzone": 0.5, "events": [Object(InputEventKey,{"scancode": 4194321}), Object(InputEventJoypadButton,{"button_index": 14})]}
-ui_up={"deadzone": 0.5, "events": [Object(InputEventKey,{"scancode": 4194320}), Object(InputEventJoypadButton,{"button_index": 11})]}
-ui_down={"deadzone": 0.5, "events": [Object(InputEventKey,{"scancode": 4194322}), Object(InputEventJoypadButton,{"button_index": 12})]}
-
 [physics]
 
 3d/default_gravity=9.8
