@@ -20,6 +20,7 @@ Thumbs.db
 # User files
 user://
 *.cfg
+!export_presets.cfg
 
 # Mobile builds
 android/
