@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_def456"]
 
 [node name="Main" type="Node3D"]
-script = SubResource("GDScript_1")
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_abc123")
